@@ -24,13 +24,14 @@ const RideComponent = ({ ride }: { ride: Ride }) => {
 
     return (
         <div className={`ride-card ${rideClass} ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-            <img src={ride.imageUrl} alt={`Taxi ${ride.id}`} />
+             <img src={`http://localhost:5000${ride.imageUrl}`} alt={`Taxi ${ride.id}`} className="ride-image"/>  {/* Ajout de l'URL complète */}
             <h5>Ride ID: {ride.id}</h5>
             <p>Distance: {ride.distance} miles</p>
             <p className="price">Price: {ride.price} EUR</p>
         </div>
     );
 };
+
 
 const App: React.FC = () => {
     const [rides, setRides] = useState<Ride[]>([]);
@@ -47,19 +48,15 @@ const App: React.FC = () => {
 
         fetchRides();
     }, []);
-
     return (
-        <div>
-            <h1>Liste des Courses</h1>
-            <ul>
-                {rides.map(ride => (
-                    <li key={ride.id}>
-                        <RideComponent ride={ride} />
-                    </li>
-                ))}
-            </ul>
+        <div className="app-container">
+          <h1>Liste des Courses</h1>
+          <div className="rides-container">
+            {rides.map(ride => (
+              <RideComponent key={ride.id} ride={ride} />
+            ))}
+          </div>
         </div>
-    );
-};
-
+      );
+    };
 export default App;
