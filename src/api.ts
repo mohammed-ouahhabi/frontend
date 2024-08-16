@@ -2,12 +2,9 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000/api', // L'URL de ton backend
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    baseURL: 'http://localhost:5000/api', 
 });
 
 export const getRides = async () => {
-    return apiClient.get('/rides');
+    return apiClient.get('/rides'); 
 };
