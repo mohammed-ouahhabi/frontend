@@ -8,7 +8,7 @@ interface Ride {
     startTime: string;
     duration: number;
     price: number;
-    imageUrl: string;  // Ajout du champ imageUrl pour chaque taxi
+    imageUrl: string;  // Ajout du champ imageUrl pour chaque taxi pas encore 
 }
 
 const RideComponent = ({ ride }: { ride: Ride }) => {
@@ -24,7 +24,7 @@ const RideComponent = ({ ride }: { ride: Ride }) => {
 
     return (
         <div className={`ride-card ${rideClass} ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
-             <img src={`http://localhost:5000${ride.imageUrl}`} alt={`Taxi ${ride.id}`} className="ride-image"/>  {/* Ajout de l'URL complète */}
+             <img src={`http://localhost:5000${ride.imageUrl}`} alt={`Taxi ${ride.id}`} className="ride-image"/>  {}
             <h5>Ride ID: {ride.id}</h5>
             <p>Distance: {ride.distance} miles</p>
             <p className="price">Price: {ride.price} EUR</p>
